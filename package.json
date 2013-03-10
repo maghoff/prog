@@ -1,6 +1,6 @@
 {
   "name": "program",
-  "version": "0.0.0-5",
+  "version": "0.0.0-6",
   "description": "Script for managing your directory full of programming projects",
   "main": "prog.js",
   "bin": {
