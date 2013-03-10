@@ -19,7 +19,8 @@
   "license": "BSD",
   "dependencies": {
     "ini": "~1.1.0",
-    "tilde-expansion": "0.0.0"
+    "tilde-expansion": "0.0.0",
+    "async": "~0.2.6"
   },
   "preferGlobal": true,
   "homepage": "http://bitbucket.org/maghoff/prog",

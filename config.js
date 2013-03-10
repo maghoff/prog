@@ -20,6 +20,7 @@ Config.prototype.has = function (sectionName, key) {
 Config.prototype.get = function (sectionName, key) {
 	if (this.data.hasOwnProperty(sectionName)) {
 		var section = this.data[sectionName];
+		if (key === undefined) return section;
 		if (section.hasOwnProperty(key)) return section[key];
 	}
 	throw "Missing configuration: [" + sectionName + "] "+key+"=... in " + configFile;

@@ -27,7 +27,7 @@ function handle(args) {
 			throw "Too many '/'-es in repo spec";
 		}
 
-		var progDirConfig = config.get("local", "progDir");
+		var progDirConfig = config.get("paths", "default");
 
 		tilde(progDirConfig, function (progDir) {
 			var url = "ssh://hg@bitbucket.org/" + user + "/" + repo;
