@@ -14,7 +14,7 @@ is not specified, it defaults to the current user configured.\n\
 ";
 
 function handle(args) {
-	if (args.length !== 1) throw "Wrong arguments";
+	if (args.length !== 1) throw "Wrong arguments (Try: prog help clone)";
 
 	config.getConfig(function (config) {
 		var arg = args[0].split('/');
