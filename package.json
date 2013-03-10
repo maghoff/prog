@@ -1,0 +1,21 @@
+{
+  "name": "prog",
+  "version": "0.0.0",
+  "description": "Script for managing your directory full of programming projects",
+  "main": "prog.js",
+  "bin": {
+    "prog": "./prog.js"
+  },
+  "repository": "https://maghoff@bitbucket.org/maghoff/resource-tree",
+  "author": "Magnus Hoff",
+  "license": "BSD",
+  "dependencies": {
+    "ini": "~1.1.0",
+    "tilde-expansion": "0.0.0"
+  },
+  "preferGlobal": true,
+  "homepage": "http://bitbucket.org/maghoff/prog",
+  "bugs": {
+    "url": "http://bitbucket.org/maghoff/prog/issues"
+  }
+}
