@@ -9,3 +9,13 @@ function prog() {
 		cd "$PROG_TARGET_CWD"
 	fi
 }
+
+function _prog_completion() {
+	local args=()
+	for x in "${COMP_WORDS[@]}";
+	do
+		args+=("a$x")
+	done
+	COMPREPLY=( $(prog complete ${args[@]}) );
+}
+complete -F _prog_completion prog

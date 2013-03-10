@@ -1,5 +1,6 @@
 var verbs = [
 	"clone",
+	"complete",
 	"help",
 	"open"
 ];
