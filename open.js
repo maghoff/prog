@@ -29,4 +29,22 @@ function handle(args) {
 	}
 }
 
+function complete(args) {
+	if (args.length !== 1) return;
+
+	var candidate = args[0];
+
+	config.getConfig(function (config) {
+		if (!config.has("local", "progDir")) return;
+
+		tilde(config.get("local", "progDir"), function (progDir) {
+			fs.readdir(progDir, function (err, files) {
+				if (err) return;
+				console.log(files.filter(function (file) { return file.indexOf(candidate) === 0; }).join('\n'));
+			});
+		});
+	});
+}
+
 exports.handle = handle;
+exports.complete = complete;

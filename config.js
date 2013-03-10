@@ -9,6 +9,14 @@ function Config(data) {
 	this.data = data;
 }
 
+Config.prototype.has = function (sectionName, key) {
+	if (this.data.hasOwnProperty(sectionName)) {
+		var section = this.data[sectionName];
+		if (section.hasOwnProperty(key)) return true;
+	}
+	return false;
+};
+
 Config.prototype.get = function (sectionName, key) {
 	if (this.data.hasOwnProperty(sectionName)) {
 		var section = this.data[sectionName];
