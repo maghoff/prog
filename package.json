@@ -1,6 +1,6 @@
 {
   "name": "program",
-  "version": "0.0.0-4",
+  "version": "0.0.0-5",
   "description": "Script for managing your directory full of programming projects",
   "main": "prog.js",
   "bin": {
@@ -11,7 +11,10 @@
   "scripts": {
     "install": "./install.sh"
   },
-  "repository": "https://maghoff@bitbucket.org/maghoff/resource-tree",
+  "repository": {
+    "type": "hg",
+    "url": "https://maghoff@bitbucket.org/maghoff/resource-tree"
+  },
   "author": "Magnus Hoff",
   "license": "BSD",
   "dependencies": {
