@@ -3,11 +3,10 @@ var path = require('path');
 var tilde = require("tilde-expansion");
 var config = require("./config");
 
-var helpString = "\
-Open\n\
-\n\
-Usage: npm open <repo>\n\
-       npm go <repo>\n\
+exports.usage = "<repo>";
+exports.shortHelp = "Changes working directory to <progDir>/<repo>";
+exports.longHelp = "\
+Aliases: open, go\n\
 \n\
 Changes working directory to <progDir>/<repo>\n\
 ";
@@ -31,4 +30,3 @@ function handle(args) {
 }
 
 exports.handle = handle;
-exports.helpString = helpString;

@@ -4,11 +4,9 @@ var spawn = require('child_process').spawn;
 var tilde = require('tilde-expansion');
 var config = require("./config");
 
-var helpString = "\
-Clone\n\
-\n\
-Usage: prog clone [<user>/]<repos>\n\
-\n\
+exports.usage = "[<user>/]<repos>";
+exports.shortHelp = "Clone bitbucket repo into local prog dir";
+exports.longHelp = "\
 Will clone the bitbucket repository named <repos> owned by <user>. If <user>\n\
 is not specified, it defaults to the current user configured.\n\
 ";
@@ -50,4 +48,3 @@ function handle(args) {
 }
 
 exports.handle = handle;
-exports.helpString = helpString;

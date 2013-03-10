@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var verbs = require("./verbs");
+
 var args = process.argv.slice(2);
 
 if (args.length < 1) {
@@ -11,8 +13,7 @@ if (args.length < 1) {
 var verb = args[0];
 
 try {
-	var verbModule = require("./" + verb);
-	verbModule.handle(args.slice(1));
+	verbs.req(verb).handle(args.slice(1));
 }
 catch (e) {
 	console.log(e);
