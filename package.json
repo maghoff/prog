@@ -4,7 +4,12 @@
   "description": "Script for managing your directory full of programming projects",
   "main": "prog.js",
   "bin": {
-    "prog": "./prog.js"
+    "prog.js": "./prog.js",
+    "prog": "./prog.js",
+    "prog.sh": "./prog.sh"
+  },
+  "scripts": {
+    "install": "./install.sh"
   },
   "repository": "https://maghoff@bitbucket.org/maghoff/resource-tree",
   "author": "Magnus Hoff",

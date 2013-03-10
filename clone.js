@@ -1,3 +1,5 @@
+var fs = require('fs');
+var path = require('path');
 var spawn = require('child_process').spawn;
 var tilde = require('tilde-expansion');
 var config = require("./config");
@@ -32,13 +34,17 @@ function handle(args) {
 		tilde(progDirConfig, function (progDir) {
 			var url = "ssh://hg@bitbucket.org/" + user + "/" + repo;
 
-		    var hg = spawn('hg', ['clone', url], { cwd: progDir });
+			var hg = spawn('hg', ['clone', url], { cwd: progDir });
 
-			hg.stdout.on('data', function (data) { console.log(data); });
-			hg.stderr.on('data', function (data) { console.log(data); });
+			hg.stdout.pipe(process.stdout);
+			hg.stderr.pipe(process.stderr);
+
 			hg.on('exit', function (code) {
 				console.log('hg process exited with code ' + code);
 			});
+
+			var targetCwdFile = process.env["PROG_TARGET_CWD_FILE"];
+			if (targetCwdFile) fs.writeFile(targetCwdFile, path.join(progDir, repo));
 		});
 	});
 }
