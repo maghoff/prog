@@ -3,8 +3,9 @@ Prog\n\
 \n\
 List of verbs:\n\
 \n\
-	help 	Display help about verbs, or this text\n\
-	clone	Clone a repository from bitbucket\n\
+    help [<verb>]          Display help about verbs, or this text\n\
+    clone [<user>/]<repo>  Clone a repository from bitbucket\n\
+    open|go <repo>         Open the project directory for <repo>\n\
 ";
 
 var helpString = "\
