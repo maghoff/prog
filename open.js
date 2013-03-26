@@ -17,9 +17,9 @@ function handle(args) {
 
 	var targetCwdFile = process.env["PROG_TARGET_CWD_FILE"];
 	if (!targetCwdFile) {
-		process.stderr.write("ERROR: Cannot change working directory");
-		process.stderr.write("Try adding the following to your ~/.profile and start a new shell:");
-		process.stderr.write(". prog.sh");
+		process.stderr.write("ERROR: Cannot change working directory\n");
+		process.stderr.write("Try adding the following to your ~/.profile and start a new shell:\n");
+		process.stderr.write(". prog.sh\n");
 		process.exit(1);
 	}
 
