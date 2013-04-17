@@ -19,3 +19,15 @@ function _prog_completion() {
 	COMPREPLY=( $(prog complete ${args[@]}) );
 }
 complete -F _prog_completion prog
+
+function _prog_open_completion() {
+	local args=(aprog aopen)
+	for x in "${COMP_WORDS[@]:1}";
+	do
+		args+=("a$x")
+	done
+	COMPREPLY=( $(prog complete ${args[@]}) );
+}
+complete -F _prog_open_completion p
+
+alias p="prog open"
