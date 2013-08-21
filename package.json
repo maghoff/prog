@@ -1,6 +1,6 @@
 {
   "name": "program",
-  "version": "0.0.0-9",
+  "version": "0.0.0-10",
   "description": "Script for managing your directory full of programming projects",
   "main": "prog.js",
   "bin": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "hg",
-    "url": "https://maghoff@bitbucket.org/maghoff/prog"
+    "url": "https://bitbucket.org/maghoff/prog"
   },
   "author": "Magnus Hoff",
   "license": "BSD",
