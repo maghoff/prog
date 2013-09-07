@@ -47,17 +47,41 @@ function handle(args) {
 function complete(args) {
 	if (args.length !== 1) return;
 
-	var candidate = args[0];
+	var candidate = new ProjectPath(args[0]);
+
+	function startsWith(prefix) {
+		return function (x) {
+			return x.indexOf(prefix) === 0;
+		};
+	}
 
 	config.getConfig(function (config) {
-		if (!config.has("paths", "default")) return;
-
-		tilde(config.get("paths", "default"), function (progDir) {
-			fs.readdir(progDir, function (err, files) {
-				if (err) return;
-				console.log(files.filter(function (file) { return file.indexOf(candidate) === 0; }).join('\n'));
+		if (candidate.pathKey === null) {
+			var pathKeys = config.keys("paths");
+			pathKeys.filter(startsWith(candidate.repo)).forEach(function (x) {
+				console.log(x + "/");
 			});
-		});
+
+			pathKeys.forEach(function (pathKey) {
+				tilde(config.get("paths", pathKey), function (progDir) {
+					fs.readdir(progDir, function (err, files) {
+						if (err) return;
+						console.log(files.filter(startsWith(candidate.repo)).join('\n'));
+					});
+				});
+			});
+		} else {
+			if (!config.has("paths", candidate.pathKey)) return;
+
+			tilde(config.get("paths", candidate.pathKey), function (progDir) {
+				fs.readdir(progDir, function (err, files) {
+					if (err) return;
+					files.filter(startsWith(candidate.repo)).forEach(function (x) {
+						console.log(candidate.pathKey + "/" + x);
+					});
+				});
+			});
+		}
 	});
 }
 

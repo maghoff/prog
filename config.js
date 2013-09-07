@@ -23,7 +23,13 @@ Config.prototype.get = function (sectionName, key) {
 		if (key === undefined) return section;
 		if (section.hasOwnProperty(key)) return section[key];
 	}
-	throw "Missing configuration: [" + sectionName + "] "+key+"=... in " + configFile;
+	throw new Error("Missing configuration: [" + sectionName + "] "+key+"=... in " + configFile);
+};
+
+Config.prototype.keys = function (sectionName) {
+	if (!this.data.hasOwnProperty(sectionName)) return [];
+	var section = this.data[sectionName];
+	return Object.keys(section);
 };
 
 function getConfig(callback) {
