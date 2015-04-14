@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 var tilde = require("tilde-expansion");
 var config = require('./config');
 var ProjectPath = require('./project-path').ProjectPath;
@@ -55,6 +56,12 @@ function complete(args) {
 		};
 	}
 
+	// TODO: Refactor to be asynchronous. Stating lots of files sequentially
+	// is a typical bottle neck.
+	function is_dir(dir, filename) {
+		return fs.statSync(path.join(dir, filename)).isDirectory();
+	}
+
 	config.getConfig(function (config) {
 		if (candidate.pathKey === null) {
 			var pathKeys = config.keys("paths");
@@ -66,7 +73,7 @@ function complete(args) {
 				tilde(config.get("paths", pathKey), function (progDir) {
 					fs.readdir(progDir, function (err, files) {
 						if (err) return;
-						console.log(files.filter(startsWith(candidate.repo)).join('\n'));
+						console.log(files.filter(startsWith(candidate.repo)).filter(is_dir.bind(null, progDir)).join('\n'));
 					});
 				});
 			});
@@ -76,7 +83,7 @@ function complete(args) {
 			tilde(config.get("paths", candidate.pathKey), function (progDir) {
 				fs.readdir(progDir, function (err, files) {
 					if (err) return;
-					files.filter(startsWith(candidate.repo)).forEach(function (x) {
+					files.filter(startsWith(candidate.repo)).filter(is_dir.bind(null, progDir)).forEach(function (x) {
 						console.log(candidate.pathKey + "/" + x);
 					});
 				});
