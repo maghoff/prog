@@ -28,6 +28,6 @@ function _prog_open_completion() {
 	done
 	COMPREPLY=( $(prog complete ${args[@]}) );
 }
-complete -F _prog_open_completion p
+complete -o nospace -F _prog_open_completion p
 
 alias p="prog open"
