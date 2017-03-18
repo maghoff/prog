@@ -41,7 +41,7 @@ function handle(args) {
 			process.exit(1);
 		}
 
-		fs.writeFile(targetCwdFile, resolvedPaths[0].fullPath);
+		fs.writeFileSync(targetCwdFile, resolvedPaths[0].fullPath);
 	});
 }
 
