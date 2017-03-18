@@ -1,6 +1,6 @@
 function prog() {
 	export PROG_TARGET_CWD_FILE=/tmp/.prog_target_cwd.XXXXXX.tmp
-	prog.js $*
+	"$( dirname "${BASH_SOURCE[0]}" )"/prog.js $*
 
 	if [ -f "$PROG_TARGET_CWD_FILE" ]
 	then
