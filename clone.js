@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var spawn = require('child_process').spawn;
-var tilde = require('tilde-expansion');
+var tilde = require('./tilde-expansion');
 var config = require("./config");
 
 exports.usage = "[<user>/]<repos>";

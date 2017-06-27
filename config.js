@@ -1,6 +1,6 @@
 var fs = require("fs");
 var ini = require("ini");
-var tilde = require("tilde-expansion");
+var tilde = require("./tilde-expansion");
 
 var configFile = "~/.prog";
 var cachedConfig;

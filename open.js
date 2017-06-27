@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var tilde = require("tilde-expansion");
+var tilde = require("./tilde-expansion");
 var config = require('./config');
 var ProjectPath = require('./project-path').ProjectPath;
 

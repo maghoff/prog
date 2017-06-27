@@ -18,9 +18,9 @@
   "author": "Magnus Hoff",
   "license": "BSD",
   "dependencies": {
-    "ini": "~1.1.0",
-    "tilde-expansion": "0.0.0",
-    "async": "~0.2.6"
+    "async": "~0.2.6",
+    "expand-tilde": "^2.0.2",
+    "ini": "~1.1.0"
   },
   "preferGlobal": true,
   "homepage": "http://bitbucket.org/maghoff/prog",
